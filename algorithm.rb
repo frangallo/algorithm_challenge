@@ -31,3 +31,31 @@ end
 
 
 p qs(0,4, [6,5,4,3,2])
+
+
+def merge_sort(array)
+  if array.length <= 1
+    return array
+  end
+
+  mid = array.length/2
+  left = array.take(mid)
+  right = array.drop(mid)
+
+  merge(merge_sort(left),merge_sort(right))
+end
+
+def merge(left,right)
+  results = []
+  until left.empty? || right.empty?
+    if left[0] < right[0]
+      results << left.shift
+    elsif left[0] == right[0]
+      results << left.shift
+    elsif left[0] > right[0]
+      results << right.shift
+    end
+  end
+
+  results + left + right
+end
