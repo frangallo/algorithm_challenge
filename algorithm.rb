@@ -58,4 +58,5 @@ def merge(left,right)
   end
 
   results + left + right
+  
 end
